@@ -1,0 +1,66 @@
+<div class="page" *ngIf="project">
+    <div class="container">
+        <div>
+            <h2>Project Task List</h2>    
+        </div>
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">Project {{  project.id  }}  
+                        <button *ngIf="project.isStarted; else notStarted"
+                        type="button" class="btn btn-success btn-sm">Started</button>
+                    <ng-template #notStarted>
+                        <button type="button" class="btn btn-danger btn-sm">Not Started</button>
+                    </ng-template>
+
+                    <button *ngIf="project.isStarted && project.isComplete; else notComplete"
+                        type="button" class="btn btn-outline-success btn-sm">Completed</button>
+                    <ng-template #notComplete>
+                        <button type="button" class="btn btn-outline-danger btn-sm">Not Complete</button>
+                    </ng-template>
+                    </div>
+                    <div class="card-subtitle">{{  project.name  }} </div>    
+                    <p></p>
+                    <div class="card-text">
+                        <p>Description: {{  project.desc  }}</p>   
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <a routerLink="/api/projects" class="btn btn-dark btn-small">Return to Project List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="list-group">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Task List</h5>
+                <a routerLink="/api/task-add/{{project.id}}" class="btn btn-dark btn-sm" >Add Task</a>  
+            </div>
+            <div class="" *ngFor="let task of tasks">
+              <p class="list-group-item bottom-1">Task: {{ task.tid }} | {{ task.taskName }} | Due: {{ task.tDueDate }}
+
+                <button *ngIf="task.tIsStarted; else taskNotStarted"
+                type="button" class="btn btn-success btn-sm">Started</button>
+            <ng-template #taskNotStarted>
+                <button type="button" class="btn btn-danger btn-sm">Not Started</button>
+            </ng-template>
+
+            <button *ngIf="task.tIsStarted && task.tIsComplete; else notComplete"
+                type="button" class="btn btn-outline-success btn-sm">Completed</button>
+            <ng-template #taskNotComplete>
+                <button type="button" class="btn btn-outline-danger btn-sm">Not Complete</button>
+            </ng-template>
+            <span id="action" class="container"> 
+                <a routerLink="/api/task-edit/{{project.id}}/{{task.tid}}" class="btn btn-dark btn-sm">Edit</a>
+                <button type="button" class="btn btn-dark btn-sm" (click)="delete(task.project.id, task.tid)">Delete</button>  
+            </span>  
+            </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

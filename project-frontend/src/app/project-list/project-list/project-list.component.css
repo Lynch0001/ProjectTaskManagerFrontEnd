@@ -1,0 +1,92 @@
+.page{
+    background: #f5f7fa;
+}
+
+.btn-danger{
+    font-size: small;
+    padding: 2px;
+    margin-left: 1rem;
+}
+
+.btn-outline-danger{
+    font-size: small;
+    padding: 2px;
+    margin-left: 1rem;  
+}
+
+.btn-outline-secondary{
+    font-size: small;
+    padding: 2px;
+    margin-left: 1rem;
+}
+
+
+.btn-outline-success{
+    font-size: small;
+    padding: 1px;
+    margin-left: 1rem;
+}
+
+.btn-success{
+    font-size: small;
+    padding: 1px;
+    margin-left: 1rem;
+}
+
+.card-title{
+    color: grey;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.card-subtitle{
+    font-size: small;
+    color: #000;
+}
+
+.card-text{
+    font-size: small;
+    color: grey;
+}
+
+.fab{
+	color: grey;
+	float:right;
+}
+.devicon-cplusplus-plain{
+	margin-right: 3px;
+	color: grey;
+	float:right;
+}
+.devicon-python-plain{
+	margin-right: 3px;
+	color: grey;
+	float:right;
+}
+.devicon-java-plain{
+	margin-right: 3px;
+	color: grey;
+	float:right;
+}
+.devicon-angularjs-plain{
+	margin-right: 3px;
+	color: grey;
+	float:right;
+}
+.devicon-mysql-plain-wordmark{
+	margin-right: 3px;
+	color: grey;
+	float:right;
+}
+.devicon-postgresql-plain-wordmark{
+	margin-right: 3px;
+	color: grey;
+	float:right;
+	
+}
+.devicon-mongodb-plain-wordmark{
+	margin-right: 3px;
+	color: grey;
+	float:right;
+	
+}

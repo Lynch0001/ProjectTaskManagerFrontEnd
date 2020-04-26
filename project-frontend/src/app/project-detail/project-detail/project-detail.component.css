@@ -1,0 +1,48 @@
+.page{
+    background: #f5f7fa;
+}
+
+
+
+.card-subtitle{
+    font-size: medium;
+    color: #000;
+}
+
+.card-text{
+    font-size: medium;
+    color: #000;
+}
+
+.btn-danger{
+    font-size: small;
+    padding: 2px;
+    margin-left: 1rem;
+}
+
+.btn-outline-danger{
+    font-size: small;
+    padding: 2px;
+    margin-left: 1rem;  
+}
+
+
+/* Project Started Button */ 
+.btn-outline-success{
+    font-size: small;
+    padding: 2px;
+    margin-left: 1rem;  
+}
+/* Project Complete Button */
+.btn-success{
+    font-size: small;
+    padding: 2px;
+    margin-left: 1rem;  
+}
+
+
+
+
+.column{
+    margin-right: auto;
+}

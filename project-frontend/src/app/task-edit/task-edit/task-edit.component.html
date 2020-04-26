@@ -1,0 +1,60 @@
+<div class="page" *ngIf="project">
+    <div class="container">
+        <div><h2>Project Task List</h2></div>
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <!--ERROR TypeError: Cannot read property 'id' of undefined-->
+                    <div class="card-title">Project {{  project.id  }} 
+                        <button [hidden]="!project.isStarted" type="button" class="btn btn-outline-success btn-sm">Started</button>
+                        <button [hidden]="!project.isComplete" type="button" class="btn btn-success btn-sm">Completed</button>    
+                    </div>
+                    <div class="card-subtitle">{{  project.name  }} </div>    
+                    <p></p>
+                    <div class="card-text">
+                        <p>Description: {{  project.desc  }}</p>   
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <a routerLink="/api/projects" class="btn btn-dark btn-small">Return to Project List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="list-group">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Task List</h5>
+            </div>
+            <div class="" *ngFor="let displayTask of displayTasks">
+              <p class="list-group-item bottom-1">Task: {{ displayTask.tid }} | {{ displayTask.taskName }} | Due: {{ displayTask.tDueDate }}
+                <button *ngIf="task.tIsStarted"
+                type="button" class="btn btn-outline-success btn-sm">Started</button>
+                <button *ngIf="task.tIsComplete"
+                type="button" class="btn btn-success btn-sm">Complete</button>  
+             </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form>
+            <div class="d-flex w-100 justify-content-between"><h5 class="mb-1">Edit Task</h5></div>
+                <div class="form-group">
+                    <label>TID:<input type="number" name="tid" class="form-control form-control-sm" min="1" step="any" [(ngModel)]="task.tid" placeholder=""/></label>
+                    <label>Name:<input type="text" name="tname" class="form-control form-control-sm" [(ngModel)]="task.taskName" placeholder=""/></label>
+                    <label>Due Date:<input type="date" name="tdue" class="form-control form-control-sm" [(ngModel)]="task.tDueDate" placeholder=""/></label>
+                    <span class="border">
+                        <label for="checkStart">Started: <input type="checkbox" id="checkStart" name="tstart" class="form--check-input" [(ngModel)]="task.tIsStarted" placeholder=""/></label>
+                        <label for="checkComp">Complete: <input type="checkbox" id="checkComp" name="tcomp" class="form--check-input" [(ngModel)]="task.tIsComplete" placeholder=""/></label>
+                    </span>
+                    <span id="action" class="container"> 
+                        <button type="button" class="btn btn-dark btn-sm" (click)="updateTask(project.id)">Submit</button>  
+                    </span> 
+                </div>                    
+        </form>
+    </div>
+</div>

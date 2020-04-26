@@ -1,0 +1,67 @@
+<div class="page">
+
+    <div class="container">
+        <div>
+            <h2>Project Task List</h2>    
+        </div>
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">Project {{  project.id  }} 
+
+                        <button [hidden]="!project.isStarted"
+                            type="button" class="btn btn-outline-success btn-sm">Started</button>
+                        <button [hidden]="!project.isComplete"
+                            type="button" class="btn btn-success btn-sm">Completed</button>    
+                    </div>
+                    <div class="card-subtitle">{{  project.name  }} </div>    
+                    <p></p>
+                    <div class="card-text">
+                        <p>Description: {{  project.desc  }}</p>   
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+
+                            <a routerLink="/api/projects" class="btn btn-dark btn-small">Return to Project List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="list-group">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Task List</h5>
+            </div>
+            <div class="" *ngFor="let task of tasks">
+              <p class="list-group-item bottom-1">Task: {{ task.tid }} | {{ task.taskName }} | Due: {{ task.tDueDate }}
+                <button *ngIf="task.tIsStarted"
+                type="button" class="btn btn-outline-success btn-sm">Started</button>
+                <button *ngIf="task.tIsComplete"
+                type="button" class="btn btn-success btn-sm">Complete</button>  
+             </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-group">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">New Task</h5>
+            </div>
+            <div class="">
+              <p class="form-group-item bottom-1">
+                <label>TID:<input type="number" name="tid" class="form-control form-control-sm" min="1" step="any" [(ngModel)]="taskData.tid" placeholder=""/></label>
+                <label>Name:<input name="tname" class="form-control form-control-sm" min="1" step="any" [(ngModel)]="taskData.taskName" placeholder=""/></label>
+                <label>Due Date:<input type="date" name="tdue" class="form-control form-control-sm" min="1" step="any" [(ngModel)]="taskData.tDueDate" placeholder=""/></label>
+                <span id="action" class="container"> 
+                    <button type="button" class="btn btn-dark btn-sm" (click)="addTask(project.id)">Add Task</button>  
+                </span>  
+            </p>
+            </div>
+        </div>
+    </div>
+
+</div>

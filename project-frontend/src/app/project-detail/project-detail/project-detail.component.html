@@ -1,0 +1,104 @@
+<div class="page" *ngIf="project">
+    <div class="container">
+        <div class="row">
+            <div class="card col-lg-4">
+                <div class="card-body">
+                    <div class="card-title">Project {{  project.id | number }} 
+                        <button *ngIf="project.isStarted; else notStarted"
+                        type="button" class="btn btn-success btn-sm">Started</button>
+                    <ng-template #notStarted>
+                        <button type="button" class="btn btn-danger btn-sm">Not Started</button>
+                    </ng-template>
+
+                    <button *ngIf="project.isStarted && project.isComplete; else notComplete"
+                        type="button" class="btn btn-outline-success btn-sm">Completed</button>
+                    <ng-template #notComplete>
+                        <button type="button" class="btn btn-outline-danger btn-sm">Not Complete</button>
+                    </ng-template>
+                    </div>
+                    <div class="card-subtitle">{{  project.name  }} </div>    
+                    <p></p>
+                    <div class="card-text">
+                        <p>Description: {{  project.desc  }}</p>   
+                    </div>
+                    <div class="card-footer">
+                        <a routerLink="/api/project-edit/{{project.id}}" class="btn btn-dark btn-small">Edit Project</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="card col-lg-8">
+                <div class="card-body">
+                    <div class="card-text">
+                        <div class="row">
+                            <div class="column">
+                                <div class="card-subtitle"><u><h6>Progress</h6></u></div>    
+                                Date(Planned): {{  project.plannedStartDate | date }}<br> 
+                                Start Date(Actual): {{  project.actualStartDate | date }}<br>   
+                                End Date(Planned): {{  project.plannedEndDate | date }}<br>  
+                                End Date(Actual): {{  project.actualEndDate | date }}<br>
+                            </div>
+                            <div class="column">
+                                <h6>Task Completion</h6>
+                                <div class="progress">
+                                    <div id="dynamic" class="progress-bar progress-bar-success" 
+                                    role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ 'width': taskCompletion + '%' }">
+                                        <span id="taskCompletion"></span>
+                                    </div>
+                                </div>
+                                <p>{{ tasksComplete }} tasks complete of {{ tasksTotal }} total project tasks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-lg-12">
+                <div class="card-body">
+                    <div class="card-text">
+                        <div class="row">
+                            <div class="column">
+                                <div class="card-subtitle"><u><h6>Use Cases</h6></u></div>    
+                                Use Case 1: {{  project.useCase1 }}<br>
+                                Use Case 2: {{  project.useCase2 }}<br>
+                                Use Case 3: {{  project.useCase3 }}<br>
+                                Use Case 4: {{  project.useCase4 }}<br>
+                                Use Case 5: {{  project.useCase5 }}<br>
+                                Use Case 6: {{  project.useCase6 }}<br>
+                                Use Case 7: {{  project.useCase7 }}<br>
+                                Use Case 8: {{  project.useCase8 }}<br>
+                                Use Case 9: {{  project.useCase9 }}<br>
+                                Use Case 10: {{  project.useCase10 }}<br> 
+                            </div>
+                            <div class="column">
+                                <div class="card-subtitle"><u><h6>Tech Stack</h6></u></div> 
+                                Frontend: {{  project.stackFront }}<br> 
+                                Backend: {{  project.stackBack }}<br>
+                                DataBase: {{  project.stackDB }}<br>
+                                Data Source: {{  project.extDataSource }}<br>
+                                Data Source Link: {{  project.extDataSourceLink }}<br>
+                                <div *ngIf="project.incExHandling; else notExHandling">
+                                    Exception Handling: Included<br></div>
+                                <ng-template #notExHandling>
+                                    Exception Handling: Not Included<br>
+                                </ng-template>
+                                <div *ngIf="project.incLogging; else notLogging">
+                                    Logging: Included<br></div>
+                                <ng-template #notLogging>
+                                    Logging: Not Included<br>
+                                </ng-template>
+                                <div *ngIf="project.incAuthAuth; else notAccess">
+                                    Access Control: Included<br></div>
+                                <ng-template #notAccess>
+                                    Access Control: Not Included<br>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a routerLink="/api/projects" class="btn btn-dark btn-small">Return to Project List</a>
+</div>
+
+

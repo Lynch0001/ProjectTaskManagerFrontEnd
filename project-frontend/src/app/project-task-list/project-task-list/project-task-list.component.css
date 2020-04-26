@@ -1,0 +1,38 @@
+#action{
+    position: absolute;
+    right: auto; 
+}
+.btn-danger{
+    font-size: small;
+    padding: 2px;
+    margin-left: 1rem;
+}
+
+.btn-outline-danger{
+    font-size: small;
+    padding: 2px;
+    margin-left: 1rem;  
+}
+
+.btn-outline-secondary{
+    font-size: small;
+    padding: 2px;
+    margin-left: 1rem;
+}
+
+
+.btn-outline-success{
+    font-size: small;
+    padding: 1px;
+    margin-left: 1rem;
+}
+
+.btn-success{
+    font-size: small;
+    padding: 1px;
+    margin-left: 1rem;
+}
+.btn-dark{
+    margin-left: .5rem;
+    padding: 1px;
+}

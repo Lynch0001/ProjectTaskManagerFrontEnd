@@ -1,0 +1,57 @@
+<div>    
+    <div>
+        <h4>Working Project List</h4>    
+    </div>
+    <div>
+        <div class="card"  *ngFor="let project of projects">
+            <div class="card-body">
+                <div class="card-title" >Project {{  project.id  }} 
+
+                    <button *ngIf="project.isStarted; else notStarted"
+                        type="button" class="btn btn-success btn-sm">Started</button>
+                    <ng-template #notStarted>
+                        <button type="button" class="btn btn-danger btn-sm">Not Started</button>
+                    </ng-template>
+
+                    <button *ngIf="project.isStarted && project.isComplete; else notComplete"
+                        type="button" class="btn btn-outline-success btn-sm">Completed</button>
+                    <ng-template #notComplete>
+                        <button type="button" class="btn btn-outline-danger btn-sm">Not Complete</button>
+                    </ng-template>
+
+                    <!--DB Icons-->
+                    <i *ngIf="project.stackDB=='MySQL'" class="devicon-mysql-plain-wordmark" style="font-size:30px"></i>
+                    <i *ngIf="project.stackDB=='PostgreSQL'" class="devicon-postgresql-plain-wordmark" style="font-size:30px"></i>
+                    <i *ngIf="project.stackDB=='MongoDB'" class="devicon-mongodb-plain-wordmark" style="font-size:30px"></i>
+
+                    <!--FrontEnd Icons-->
+                    <i *ngIf="project.stackFront=='Angular'" class="devicon-angularjs-plain" style="font-size:28px"></i>
+
+                    <!--BackEnd Icons-->
+                    <i *ngIf="project.stackBack=='Java'" class="devicon-java-plain" style="font-size:28px"></i>
+                    <i *ngIf="project.stackBack=='Python'" class="devicon-python-plain" style="font-size:28px"></i>
+                    <i *ngIf="project.stackBack=='C++'" class="devicon-cplusplus-plain" style="font-size:28px"></i>
+
+                </div>
+                <div class="card-subtitle">{{  project.name  }} </div>    
+                <p></p>
+                <div class="card-text">
+                    <p>Description: {{  project.desc  }}</p>   
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <a routerLink="/api/project-detail/{{project.id}}" class="btn btn-outline-secondary">See Details</a>
+                        <a routerLink="/api/project-task-list/{{project.id}}" class="btn btn-outline-secondary btn-sm">See Tasks</a>
+                        <a href="#" class="btn btn-outline-secondary btn-sm" (click)="delete(project.id)">Delete Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <button class="btn btn-dark btn-sm" (click)="add()">Add Project</button>
+</div>
+
+
