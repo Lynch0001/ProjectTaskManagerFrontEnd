@@ -9,28 +9,48 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProjectDetailComponent implements OnInit {
 
-  taskCompletion: number;
-  tasksTotal: number;
-  tasksComplete: number;
+  tasks: any = [];
   project: any;
+  tasksTotal: number;
+  tasksComplete: number = 0;
+  taskCompletion: number;
 
   constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) {
+    console.log('Constuctor executing');
 
-   }
+    console.log('Receiving TASK data');
+    this.rest.getTasksByProject(this.route.snapshot.params['id']).subscribe((tdata: {}) => {
+      console.log(tdata);
+      this.tasks = tdata;
+      this.tasksTotal = this.getTasksTotal();
+      let i: number;
+      for (i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].tIsComplete) { this.tasksComplete += 1; }
+      }
+      this.taskCompletion = (this.tasksComplete / this.tasksTotal) * 100;
+    });
+
+  }
 
   ngOnInit() {
-    console.log('Initializing project-detail')
+
+    console.log('Initializing project-detail');
     this.rest.getProject(this.route.snapshot.params['id']).subscribe((data: {}) => {
-      console.log('Receiving project data--Starting')
+      console.log('Receiving PROJECT data');
       this.project = data;
       console.log(data);
-      console.log('Receiving project data--Complete')
-
     });
-    /* For STATIC Testing Progress Bar */
-    this.tasksTotal = 100;
-    this.tasksComplete = 60;
-    this.taskCompletion = (this.tasksComplete / this.tasksTotal) * 100;
 
-   }
+
+  }
+
+getTasksTotal() {
+  console.log('Retreiving tasks total');
+  const tlen = this.tasks.length;
+  console.log('tlen ' + tlen);
+  return tlen;
+  }
+
+
 }
+

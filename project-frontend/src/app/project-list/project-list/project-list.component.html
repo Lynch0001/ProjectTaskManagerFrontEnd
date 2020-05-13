@@ -1,9 +1,11 @@
-<div>    
+<div>   
     <div>
-        <h4>Working Project List</h4>    
+        <h4>Working Project List</h4>
+        <button class="btn btn-dark btn-sm" (click)="add()">Add Project</button>
     </div>
-    <div>
-        <div class="card"  *ngFor="let project of projects">
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4">
+
+        <div class="card col mb-3"  *ngFor="let project of projects">
             <div class="card-body">
                 <div class="card-title" >Project {{  project.id  }} 
 
@@ -20,17 +22,27 @@
                     </ng-template>
 
                     <!--DB Icons-->
-                    <i *ngIf="project.stackDB=='MySQL'" class="devicon-mysql-plain-wordmark" style="font-size:30px"></i>
-                    <i *ngIf="project.stackDB=='PostgreSQL'" class="devicon-postgresql-plain-wordmark" style="font-size:30px"></i>
-                    <i *ngIf="project.stackDB=='MongoDB'" class="devicon-mongodb-plain-wordmark" style="font-size:30px"></i>
+                    <i *ngIf="project.stackDB==null; else DBnotNull"></i>
+                    <ng-template #DBnotNull>
+                        <i *ngIf="project.stackDB.toLowerCase().includes('mysql')" class="devicon-mysql-plain-wordmark" style="font-size:30px"></i>
+                        <i *ngIf="project.stackDB.toLowerCase().includes('postgresql')" class="devicon-postgresql-plain-wordmark" style="font-size:30px"></i>
+                        <i *ngIf="project.stackDB.toLowerCase().includes('mongo')" class="devicon-mongodb-plain-wordmark" style="font-size:30px"></i>
+                    </ng-template>
 
                     <!--FrontEnd Icons-->
-                    <i *ngIf="project.stackFront=='Angular'" class="devicon-angularjs-plain" style="font-size:28px"></i>
+                    <i *ngIf="project.stackFront==null; else FrontnotNull"></i>
+                    <ng-template #FrontnotNull>
+                        <i *ngIf="project.stackFront.toLowerCase().includes('angular')" class="devicon-angularjs-plain" style="font-size:28px"></i>
+                    </ng-template>
+
 
                     <!--BackEnd Icons-->
-                    <i *ngIf="project.stackBack=='Java'" class="devicon-java-plain" style="font-size:28px"></i>
-                    <i *ngIf="project.stackBack=='Python'" class="devicon-python-plain" style="font-size:28px"></i>
-                    <i *ngIf="project.stackBack=='C++'" class="devicon-cplusplus-plain" style="font-size:28px"></i>
+                     <i *ngIf="project.stackBack==null; else BacknotNull"></i>
+                    <ng-template #BacknotNull>                   
+                        <i *ngIf="project.stackBack.toLowerCase().includes('java')" class="devicon-java-plain" style="font-size:28px"></i>
+                        <i *ngIf="project.stackBack.toLowerCase().includes('python')" class="devicon-python-plain" style="font-size:28px"></i>
+                        <i *ngIf="project.stackBack.toLowerCase().includes('c++') || project.stackBack.toLowerCase().includes('cpp')" class="devicon-cplusplus-plain" style="font-size:28px"></i>
+                    </ng-template>
 
                 </div>
                 <div class="card-subtitle">{{  project.name  }} </div>    
@@ -48,10 +60,6 @@
             </div>
         </div>
     </div>
-
-
-    
-    <button class="btn btn-dark btn-sm" (click)="add()">Add Project</button>
 </div>
 
 

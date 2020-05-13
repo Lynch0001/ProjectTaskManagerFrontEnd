@@ -15,13 +15,13 @@ export class ProjectTaskListComponent implements OnInit {
   constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.rest.getProject(this.route.snapshot.params['id']).subscribe((pdata: {}) => {
-      console.log(pdata);
-      this.project = pdata;
-    });
-    this.rest.getTasksByProject(this.route.snapshot.params['id']).subscribe((tdata: {}) => {
-      console.log(tdata);
+	this.rest.getTasksByProject(this.route.snapshot.params['id']).subscribe((tdata: {}) => {
+      console.log("tdata: " + tdata);
       this.tasks = tdata;
+    });
+    this.rest.getProject(this.route.snapshot.params['id']).subscribe((pdata: {}) => {
+      console.log("Project Data: " + pdata);
+      this.project = pdata;
     });
   }
 

@@ -1,5 +1,17 @@
+
+
 .page{
     background: #f5f7fa;
+}
+
+h4{
+    display: inline-block;
+
+}
+
+.btn-dark{
+    float: right;
+    margin: 1px;
 }
 
 .btn-danger{

@@ -55,7 +55,7 @@
             </ng-template>
             <span id="action" class="container"> 
                 <a routerLink="/api/task-edit/{{project.id}}/{{task.tid}}" class="btn btn-dark btn-sm">Edit</a>
-                <button type="button" class="btn btn-dark btn-sm" (click)="delete(task.project.id, task.tid)">Delete</button>  
+                <a routerLink="/api/project-task-list/{{project.id}}" class="btn btn-dark btn-sm" (click)="delete(task.project.id, task.tid)">Delete</a>  
             </span>  
             </p>
             </div>

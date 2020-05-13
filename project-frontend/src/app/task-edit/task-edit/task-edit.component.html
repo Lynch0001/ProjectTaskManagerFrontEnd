@@ -39,12 +39,15 @@
             </div>
         </div>
     </div>
-
+ 
+ 	
+ 	
+ 
     <div class="container">
         <form>
             <div class="d-flex w-100 justify-content-between"><h5 class="mb-1">Edit Task</h5></div>
                 <div class="form-group">
-                    <label>TID:<input type="number" name="tid" class="form-control form-control-sm" min="1" step="any" [(ngModel)]="task.tid" placeholder=""/></label>
+                    <label>TID:<input class="form-control form-control-sm" type="number" min="100" max="999" name="tid" [(ngModel)]="task.tid" placeholder="100-999"/></label>
                     <label>Name:<input type="text" name="tname" class="form-control form-control-sm" [(ngModel)]="task.taskName" placeholder=""/></label>
                     <label>Due Date:<input type="date" name="tdue" class="form-control form-control-sm" [(ngModel)]="task.tDueDate" placeholder=""/></label>
                     <span class="border">

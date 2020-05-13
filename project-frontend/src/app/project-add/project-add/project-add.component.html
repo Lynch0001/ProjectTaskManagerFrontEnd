@@ -5,22 +5,21 @@
           <form>
               <div class="form-group">
               <div class="row">
-                  <label>Project Number:<input type="number" name="pnum" class="form-control form-control-sm" min="1" step="any" [(ngModel)]="projectData.id" placeholder="Project Number"/></label><br>
-                  <label>Project Name:<input [(ngModel)]="projectData.name" name="pname" class="form-control form-control-sm" placeholder="Project Name"/></label>
+                  <label>Project Number:<input type="number" step="1" min="1" max="99" name="pnum" class="form-control form-control-sm" [(ngModel)]="projectData.id" placeholder="1-99"/></label><br>
+                  <label>Project Name:<input [(ngModel)]="projectData.name" name="pname" class="form-control form-control-sm"/></label>
               </div>
               <div class="row">
                   <label>Project Description:</label>
               </div>
               <div class="row">                       
-                  <textarea [(ngModel)]="projectData.desc" id="ta1" name="pdesc" class="form-control form-control-sm" placeholder="Project Description" rows="3"></textarea><br>
+                  <textarea [(ngModel)]="projectData.desc" id="ta1" name="pdesc" class="form-control form-control-sm" rows="3"></textarea><br>
               </div>
               <div class="row">
                   <label>Planned Start Date: <input [(ngModel)]="projectData.plannedStartDate" type="date" name="psd" class="form-control form-control-sm" placeholder=""/></label><br>
                   <label>Planned End Date: <input type="date" [(ngModel)]="projectData.plannedEndDate" name="ped" class="form-control form-control-sm" placeholder=""/></label><br>
                   <label>Actual Start Date: <input type="date" [(ngModel)]="projectData.actualStartDate" name="asd" class="form-control form-control-sm" placeholder=""/></label><br>
                   <label>Actual End Date: <input type="date" [(ngModel)]="projectData.actualEndDate" name="aed" class="form-control form-control-sm" placeholder=""/></label><br>
-              </div>
-              <div class="row">      
+ 
                   <label>Started: <input [(ngModel)]="projectData.isStarted" name="start" class="form-control form-control-sm" placeholder=""/></label><br>
                   <label>Complete: <input [(ngModel)]="projectData.isComplete" name="complete" class="form-control form-control-sm" placeholder=""/></label><br>
               </div>  
@@ -51,8 +50,7 @@
                   <label>Frontend: <input [(ngModel)]="projectData.stackFront" name="sf" class="form-control form-control-sm" placeholder=""/></label><br>
                   <label>Backend: <input [(ngModel)]="projectData.stackBack" name="sb" class="form-control form-control-sm" placeholder=""/></label><br>
                   <label>DataBase: <input [(ngModel)]="projectData.stackDB" name="sd" class="form-control form-control-sm" placeholder=""/></label><br>
-              </div>
-              <div class="row">
+
                   <label>External Data Source: <input [(ngModel)]="projectData.extDataSource" name="ed" class="form-control form-control-sm" placeholder=""/></label><br>
                   <label>External Data Link: <input [(ngModel)]="projectData.extDataSourceLink" name="edl" class="form-control form-control-sm" placeholder=""/></label><br>
               </div>
