@@ -16,22 +16,13 @@ export class ProjectTaskListComponent implements OnInit {
 
   ngOnInit() {
 	this.rest.getTasksByProject(this.route.snapshot.params['id']).subscribe((tdata: {}) => {
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Lynch0001/ProjectTaskManagerFrontEnd.git
-      console.log("tdata: " + tdata);
-=======
       console.log('tdata: ' + tdata);
->>>>>>> 836af45 Fixed bugs: Delete task page reload/Edit task affecting task list
       this.tasks = tdata;
     });
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Lynch0001/ProjectTaskManagerFrontEnd.git
-    this.rest.getProject(this.route.snapshot.params['id']).subscribe((pdata: {}) => {
-      console.log("Project Data: " + pdata);
-      this.project = pdata;
-=======
+
  this.rest.getProject(this.route.snapshot.params['id']).subscribe((pdata: {}) => {
     console.log('Project Data: ' + pdata);
     this.project = pdata;
->>>>>>> 836af45 Fixed bugs: Delete task page reload/Edit task affecting task list
     });
   }
 

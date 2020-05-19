@@ -1,30 +1,8 @@
-
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Lynch0001/ProjectTaskManagerFrontEnd.git
-    <div class="container">
-        <div class="list-group">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Task List</h5>
-            </div>
-            <div class="" *ngFor="let displayTask of displayTasks">
-              <p class="list-group-item bottom-1">Task: {{ displayTask.tid }} | {{ displayTask.taskName }} | Due: {{ displayTask.tDueDate }}
-                <button *ngIf="task.tIsStarted"
-                type="button" class="btn btn-outline-success btn-sm">Started</button>
-                <button *ngIf="task.tIsComplete"
-                type="button" class="btn btn-success btn-sm">Complete</button>  
-             </p>
-            </div>
-        </div>
-    </div>
- 
- 	
- 	
- 
-=======
 <div class="page" *ngIf="project">
 
  	<app-project-task-list></app-project-task-list>
 
->>>>>>> 836af45 Fixed bugs: Delete task page reload/Edit task affecting task list
+
     <div class="container">
         <form>
             <div class="d-flex w-100 justify-content-between"><h5 class="mb-1">Edit Task</h5></div>
