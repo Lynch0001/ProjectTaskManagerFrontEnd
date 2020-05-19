@@ -53,7 +53,11 @@
             </div>
             <div class="">
               <p class="form-group-item bottom-1">
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Lynch0001/ProjectTaskManagerFrontEnd.git
                 <label>TID:<input name="tid" maxlength="3" min="100" max="999" class="form-control form-control-sm" type="number" [(ngModel)]="taskData.tid" placeholder="100-999"/></label>
+=======
+                <label>TID:<input name="tid" min="100" max="999" class="form-control form-control-sm"  [(ngModel)]="taskData.tid" placeholder="100-999" required/></label>
+>>>>>>> 836af45 Fixed bugs: Delete task page reload/Edit task affecting task list
                 <label>Name:<input name="tname" class="form-control form-control-sm" [(ngModel)]="taskData.taskName" placeholder=""/></label>
                 <label>Due Date:<input type="date" name="tdue" class="form-control form-control-sm" [(ngModel)]="taskData.tDueDate" placeholder=""/></label>
                 <span id="action" class="container"> 

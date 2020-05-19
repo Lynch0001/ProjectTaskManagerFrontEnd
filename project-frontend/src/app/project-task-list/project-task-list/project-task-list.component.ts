@@ -16,26 +16,32 @@ export class ProjectTaskListComponent implements OnInit {
 
   ngOnInit() {
 	this.rest.getTasksByProject(this.route.snapshot.params['id']).subscribe((tdata: {}) => {
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Lynch0001/ProjectTaskManagerFrontEnd.git
       console.log("tdata: " + tdata);
+=======
+      console.log('tdata: ' + tdata);
+>>>>>>> 836af45 Fixed bugs: Delete task page reload/Edit task affecting task list
       this.tasks = tdata;
     });
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Lynch0001/ProjectTaskManagerFrontEnd.git
     this.rest.getProject(this.route.snapshot.params['id']).subscribe((pdata: {}) => {
       console.log("Project Data: " + pdata);
       this.project = pdata;
+=======
+ this.rest.getProject(this.route.snapshot.params['id']).subscribe((pdata: {}) => {
+    console.log('Project Data: ' + pdata);
+    this.project = pdata;
+>>>>>>> 836af45 Fixed bugs: Delete task page reload/Edit task affecting task list
     });
   }
 
-  /* Add Edit-Update function */
-  /* Edit Add function */
-  /* Edit Delete function */
-  /* Add Task related routes */
   add(id) {
     this.router.navigate(['/api/projects/' + id + '/tasks']);
   }
 
   delete(id, tid) {
     this.rest.deletetask(id, tid).subscribe((result) => {
-      this.router.navigate(['/api/project-task-list/' + id]);
+      this.router.navigate(['/api/project-task-list/' + id + '/reload']);
         }, (err) => {
           console.log(err);
         });

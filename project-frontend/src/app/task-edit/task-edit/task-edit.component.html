@@ -1,29 +1,5 @@
-<div class="page" *ngIf="project">
-    <div class="container">
-        <div><h2>Project Task List</h2></div>
-        <div>
-            <div class="card">
-                <div class="card-body">
-                    <!--ERROR TypeError: Cannot read property 'id' of undefined-->
-                    <div class="card-title">Project {{  project.id  }} 
-                        <button [hidden]="!project.isStarted" type="button" class="btn btn-outline-success btn-sm">Started</button>
-                        <button [hidden]="!project.isComplete" type="button" class="btn btn-success btn-sm">Completed</button>    
-                    </div>
-                    <div class="card-subtitle">{{  project.name  }} </div>    
-                    <p></p>
-                    <div class="card-text">
-                        <p>Description: {{  project.desc  }}</p>   
-                    </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <a routerLink="/api/projects" class="btn btn-dark btn-small">Return to Project List</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Lynch0001/ProjectTaskManagerFrontEnd.git
     <div class="container">
         <div class="list-group">
             <div class="d-flex w-100 justify-content-between">
@@ -43,6 +19,12 @@
  	
  	
  
+=======
+<div class="page" *ngIf="project">
+
+ 	<app-project-task-list></app-project-task-list>
+
+>>>>>>> 836af45 Fixed bugs: Delete task page reload/Edit task affecting task list
     <div class="container">
         <form>
             <div class="d-flex w-100 justify-content-between"><h5 class="mb-1">Edit Task</h5></div>

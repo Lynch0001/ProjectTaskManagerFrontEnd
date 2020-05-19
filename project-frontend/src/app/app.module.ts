@@ -45,6 +45,11 @@ const appRoutes: Routes = [
     component: ProjectTaskListComponent,
     data: { title: 'Project Task List' }
   },
+    {
+    path: 'api/project-task-list/:id/reload',
+    component: ProjectTaskListComponent,
+    data: { title: 'Project Task List' }
+  },
   {
     path: 'api/task-edit/:id/:tid',
     component: TaskEditComponent,
